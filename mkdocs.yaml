@@ -1,0 +1,13 @@
+site_name: What is Trending on YouTube?
+repo_url: https://github.com/NeonOrangeOrange/
+edit_uri: ""
+site_url: https://NeonOrangeOrange.github.io/
+
+nav:
+  - Home: index.md
+  - Trending:
+    - US (United States): trending/US.md
+
+markdown_extensions:
+  - toc:
+      toc_depth: 1
