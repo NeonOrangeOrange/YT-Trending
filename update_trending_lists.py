@@ -22,7 +22,7 @@ headers = {'Content-Type': 'application/json', 'X-goog-api-key': YT_API_KEY}
 PARAMS = {'part': 'snippet', 'chart': 'mostPopular', 'regionCode': 'US'}
 response = requests.get('https://youtube.googleapis.com/youtube/v3/videos', headers=headers, params=PARAMS)
 
-if response.status_code != 400:
+if response.status_code != 200:
     raise Exception(str(response.json()))
 
 data = response.json()
@@ -38,7 +38,7 @@ while data.get('nextPageToken'):
     PARAMS['pageToken'] = data['nextPageToken']
     response = requests.get('https://youtube.googleapis.com/youtube/v3/videos', headers=headers, params=PARAMS)
 
-    if response.status_code != 400:
+    if response.status_code != 200:
         raise Exception(str(response.json()))
 
     data = response.json()
