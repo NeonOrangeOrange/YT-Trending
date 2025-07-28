@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up python
         uses: actions/setup-python@v5
@@ -23,7 +25,7 @@ jobs:
 
       - name: Update the lists
         env:
-            API_KEY: ${{ secrets.API_KEY }}
+          API_KEY: ${{ secrets.API_KEY }}
         run: python update_trending_lists.py
 
       - name: Update the website
