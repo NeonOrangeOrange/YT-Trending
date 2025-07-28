@@ -23,7 +23,7 @@ PARAMS = {'part': 'snippet', 'chart': 'mostPopular', 'regionCode': 'US'}
 response = requests.get('https://youtube.googleapis.com/youtube/v3/videos', headers=headers, params=PARAMS)
 
 if response.status_code != 400:
-    raise Exception(str(data))
+    raise Exception(str(response.json()))
 
 data = response.json()
 items = data["items"]
@@ -39,7 +39,7 @@ while data.get('nextPageToken'):
     response = requests.get('https://youtube.googleapis.com/youtube/v3/videos', headers=headers, params=PARAMS)
 
     if response.status_code != 400:
-        raise Exception(str(data))
+        raise Exception(str(response.json()))
 
     data = response.json()
     items = data["items"]
