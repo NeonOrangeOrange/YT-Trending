@@ -21,8 +21,11 @@ vid_list = list()
 headers = {'Content-Type': 'application/json', 'X-goog-api-key': YT_API_KEY}
 PARAMS = {'part': 'snippet', 'chart': 'mostPopular', 'regionCode': 'US'}
 response = requests.get('https://youtube.googleapis.com/youtube/v3/videos', headers=headers, params=PARAMS)
+
+if response.status_code != 400:
+    raise Exception(str(data))
+
 data = response.json()
-# raise Exception(str(data))
 items = data["items"]
 for vid in items:
     vid_list.append({'id': vid["id"], 
@@ -34,6 +37,10 @@ for vid in items:
 while data.get('nextPageToken'):
     PARAMS['pageToken'] = data['nextPageToken']
     response = requests.get('https://youtube.googleapis.com/youtube/v3/videos', headers=headers, params=PARAMS)
+
+    if response.status_code != 400:
+        raise Exception(str(data))
+
     data = response.json()
     items = data["items"]
     for vid in items:
