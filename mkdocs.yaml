@@ -1,7 +1,7 @@
 site_name: What is Trending on YouTube?
-repo_url: https://github.com/NeonOrangeOrange/
+repo_url: https://github.com/NeonOrangeOrange/YT-Trending
 edit_uri: ""
-site_url: https://NeonOrangeOrange.github.io/
+site_url: https://NeonOrangeOrange.github.io/YT-Trending/
 
 nav:
   - Home: index.md
